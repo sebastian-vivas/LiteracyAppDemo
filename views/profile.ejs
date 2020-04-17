@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Rad Rocket!</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/077191d827.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <a id="logo" href="/profile">Rad Rocket!</a>
+      <section class="headerLinks">
+        <% for(var i=0; i< stats.length; i++) {%>
+        <a href="/profile"> Hello <span><%= stats[i].displayName %></span>!</a>
+        <% } %>
+      </section>
+      <section class="membership">
+        <a href="/account" class="btn btn-default btn-sm">Account</a>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+      </section>
+    </header>
+    <h2 class="title">- STORY MENU -</h2>
+    <section class="section">
+      <a class="episodeLink" href="/episodeOne">
+        <section class="gameImage">
+          <h3 class="bookOneTitle">1. Hello World!</h3>
+          <section class="section">
+            <p>PLAY!</p>
+          </section>
+        </section>
+      </a>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
+</html>

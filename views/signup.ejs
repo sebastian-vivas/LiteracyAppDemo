@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <title>Rad Rocket!</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <a id="logo" href="/">Rad Rocket!</a>
+      <section class="headerLinks">
+        <a href="/about">What is Rad Rocket?</a>
+        <a href="/howTo">How To Play</a>
+      </section>
+      <section class="membership">
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      </section>
+    </header>
+    <section class="logInPage">
+     <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+     <% } %>
+     <section class="logoLogIn">
+      <img src="images/signup.png" alt="signup">
+     </section>
+     <section class="logInForm">
+      <form action="/signup" method="post">
+          <label>Email:</label>
+          <section class="form-group">
+              <input type="text" class="form-control" name="email">
+          </section>
+          <label>Password:</label>
+          <section class="form-group">
+              <input type="password" class="form-control" name="password">
+          </section>
+          <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+      </form>
+    </section>
+   </section>
+   <footer class="homePageFooter">
+     <section class="topSecFooter">
+       <h2>Rad Rocket Education</h2>
+       <section class="footerLinks">
+         <a href="/about">What is Rad Rocket?</a>/
+         <a href="/howTo">How to Play</a>/
+         <a href="/contact">Contact Us</a>
+       </section>
+     </section>
+     <section class="bottomSecFooter">
+       <p>© 2020 Sebastian Vivas</p>
+     </section>
+   </footer>
+  </body>
+</html>

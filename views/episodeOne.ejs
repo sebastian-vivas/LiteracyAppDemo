@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Rad Rocket!</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/077191d827.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="episodeBackground">
+    <header>
+      <a id="logo" href="/profile">Rad Rocket!</a>
+      <section class="headerLinks">
+      </section>
+      <section class="membership">
+        <a href="/profile">Story Menu</a>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+      </section>
+    </header>
+    <h2 class="title">- Hello World! -</h2>
+    <section class="gameSection">
+      <iframe src="game.html" height="300px" width="500px">game not available</iframe>
+    </section>
+    <h2 class="title2">What did you learn? Share a message!</h2>
+    <% if (user.local.email) { %>
+    <form action="/messages" method="POST" class="episodeForm">
+      <input style="display: none" type="text" value="<%= user.local.email%>" name="name">
+      <input type="text" placeholder="message" name="msg">
+      <button>Share</button>
+    </form>
+    <% } %>
+    <ul class="stats">
+      <% for(var i=0; i< stats.length; i++) {%>
+      <li>
+        <span style="display: none"><%= stats[i].name %></span>
+        <span><%= stats[i].msg %></span>
+        <% if(stats[i].heart === true){ %>
+        <span class="red"><i class="fas fa-heart"></i></span>
+          <% } else { %>
+        <span><i class="fas fa-heart"></i></span>
+        <% } %>
+        <% if(user.local.email == stats[i].name) { %>
+        <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+        <% } %>
+      </li>
+      <% } %>
+    </ul>
+
+
+
+
+
+    <script src="main.js"></script>
+  </body>
+</html>
