@@ -5,17 +5,19 @@ export default class Coins extends Phaser.Physics.Arcade.StaticGroup {
   super(world, scene);
   this.scene = scene;
 
-  spriteArray.forEach((coin) => {
+  spriteArray.forEach(coin => {
       coin.setOrigin(0);
       this.world.enableBody(coin, 1);
-      coin.setScale(2);
+      coin.setScale(1);
       coin.body.setSize(coin.width*coin.scaleX, coin.height*coin.scaleY, true);
       this.add(coin);
     });
-  }
+    this.refresh();
+  };
 
-  collectCoins (player, coins) {
-    this.remove(coins);
-    coin.destroy();
-  }
+  collectCoin (player, coin) {
+      this.remove(coin);
+      coin.destroy();
+      this.scene.events.emit('coinCollected');
+  };
 };

@@ -17,8 +17,18 @@
       </section>
     </header>
     <h2 class="contactUsTitle">Set Display Name</h2>
+    <section id="displayName" >
+      <% for(var i=0; i < names.length; i++) {%>
+        <span style="display: none"><%= names[i].displayName %></span>
+        <% if(user.local.email == names[i].name) { %>
+          <span><%= names[i].displayName %></span>
+          <button class="resetName">Reset</button>
+        <% } %>
+      <% } %>
+    </section>
     <section class="changeDisplayName">
       <form action="/displayName" method="post">
+        <input style="display: none" type="text" value="<%= user.local.email%>" name="name">
         <input type="text" name="displayName">
         <button>Set Display Name</button>
       </form>

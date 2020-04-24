@@ -92,7 +92,7 @@ header{
 .bannerImage p{
   font-family: 'Fredoka One', cursive;
   color: rgb(255, 186, 36);
-  font-size: 4rem;
+  font-size: 3rem;
   margin: 2rem 0rem 0rem 40rem;
 }
 
@@ -253,7 +253,7 @@ header{
   border: 1px solid black;
 }
 
-.newsLetter form button{
+#newsLetterButton{
   font-family: 'Fredoka One', cursive;
   font-size: 1.1rem;
   border: none;
@@ -292,7 +292,7 @@ header{
 .footerLinks{
   display: flex;
   justify-content: flex-end;
-  width: 75%;
+  width: 70%;
 }
 
 .topSecFooter a{
@@ -651,11 +651,29 @@ header{
 
 /* ACCOUNT.EJS */
 
+#displayName{
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 2rem;
+  font-family: 'Fredoka One', cursive;
+  color: rgb(255, 186, 36);
+}
+
+#displayName button{
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: rgb(50, 170, 142);
+  color: white;
+  border: 2px solid black;
+}
+
 .changeDisplayName{
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 3rem;
+  margin-top: 2rem;
   border-bottom: 2px solid black;
   padding-bottom: 5rem;
 }
@@ -708,6 +726,7 @@ header{
   border-radius: 3px;
   padding: 1px;
 }
+
 .deleteSection form{
   text-align: center;
   margin-top: 3rem;

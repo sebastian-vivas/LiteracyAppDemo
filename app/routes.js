@@ -9,11 +9,11 @@ module.exports = function(app, passport, db) {
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        db.collection('stats').find().toArray((err, result) => {
+        db.collection('names').find().toArray((err, result) => {
           if (err) return console.log(err)
           res.render('profile.ejs', {
             user : req.user,
-            stats: result
+            names: result
           })
         })
     });
@@ -61,11 +61,11 @@ module.exports = function(app, passport, db) {
 
     // ACCOUNT ===============================================
     app.get('/account', isLoggedIn, function(req, res) {
-        db.collection('stats').find().toArray((err, result) => {
+        db.collection('names').find().toArray((err, result) => {
           if (err) return console.log(err)
           res.render('account.ejs', {
             user : req.user,
-            stats: result
+            names: result
           })
         })
     });
@@ -87,7 +87,7 @@ module.exports = function(app, passport, db) {
     })
 
     app.post('/displayName', (req, res) => {
-      db.collection('stats').save({displayName: req.body.displayName, stars: 0}, (err, result) => {
+      db.collection('names').save({name: req.body.name, displayName: req.body.displayName, stars: 0}, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
@@ -131,12 +131,12 @@ module.exports = function(app, passport, db) {
       })
     })
 
-    // app.delete('/resetName', (req, res) => {
-    //   db.collection('stats').findOneAndDelete({displayName:req.body.displayName}, (err, result) => {
-    //     if (err) return res.send(500, err)
-    //     res.send('Message deleted!')
-    //   })
-    // })
+    app.delete('/resetName', (req, res) => {
+      db.collection('names').findOneAndDelete({displayName: req.body.displayName}, (err, result) => {
+        if (err) return res.send(500, err)
+        res.send('Message deleted!')
+      })
+    })
 
     app.delete('/deleteAccount', (req, res) => {
       db.collection('users').findOneAndDelete({email: req.body.email}, (err, result) => {

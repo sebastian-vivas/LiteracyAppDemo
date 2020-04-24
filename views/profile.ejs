@@ -10,8 +10,11 @@
     <header>
       <a id="logo" href="/profile">Rad Rocket!</a>
       <section class="headerLinks">
-        <% for(var i=0; i< stats.length; i++) {%>
-        <a href="/profile"> Hello <span><%= stats[i].displayName %></span>!</a>
+        <% for(var i=0; i < names.length; i++) {%>
+          <span style="display: none"><%= names[i].displayName %></span>
+          <% if(user.local.email == names[i].name) { %>
+            <a href="/profile"> Hello <span><%= names[i].displayName %></span>!</a>
+        <% } %>
         <% } %>
       </section>
       <section class="membership">

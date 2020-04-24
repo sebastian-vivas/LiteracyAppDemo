@@ -55,7 +55,24 @@ Array.from(deleteAccount).forEach(function(element) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            'email': email,
+            'email': email
+          })
+        }).then(function (response) {
+          window.location.reload()
+        })
+      });
+});
+
+Array.from(resetName).forEach(function(element) {
+      element.addEventListener('click', function(){
+        const displayName = this.parentNode.childNodes[3].innerText
+        fetch('/resetName', {
+          method: 'delete',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'displayName': displayName
           })
         }).then(function (response) {
           window.location.reload()
