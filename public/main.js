@@ -6,8 +6,8 @@ const deleteAccount = document.getElementsByClassName("deleteAccount");
 Array.from(heart).forEach(function(element) {
       element.addEventListener('click', function(){
         const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[1].innerText
-        const heart = this.parentNode.parentNode.childNodes[3].innerText
+        const msg = this.parentNode.parentNode.childNodes[3].innerText
+        const heart = this.parentNode.parentNode.childNodes[5].innerText
         fetch('messages', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},

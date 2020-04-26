@@ -87,7 +87,7 @@ module.exports = function(app, passport, db) {
     })
 
     app.post('/displayName', (req, res) => {
-      db.collection('names').save({name: req.body.name, displayName: req.body.displayName, stars: 0}, (err, result) => {
+      db.collection('names').save({name: req.body.name, displayName: req.body.displayName}, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
@@ -99,21 +99,6 @@ module.exports = function(app, passport, db) {
       .findOneAndUpdate({name:req.body.name, msg: req.body.msg}, {
         $set: {
           heart: true
-        }
-      }, {
-        sort: {_id: -1},
-        upsert: true
-      }, (err, result) => {
-        if (err) return res.send(err)
-        res.send(result)
-      })
-    })
-
-    app.put('/addStars', (req, res) => {
-      db.collection('stats')
-      .findOneAndUpdate({name:req.body.name, displayName: req.body.displayName}, {
-        $set: {
-          stars: req.body.stars + 1
         }
       }, {
         sort: {_id: -1},

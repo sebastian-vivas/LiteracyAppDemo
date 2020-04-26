@@ -21,15 +21,15 @@
       <iframe src="game.html" width="960" height="480"></iframe>
     </section>
     <h2 class="title2">What did you learn? Share a message!</h2>
-    <% if (user.local.email) { %>
+
     <form action="/messages" method="POST" class="episodeForm">
       <input style="display: none" type="text" value="<%= user.local.email%>" name="name">
       <input type="text" placeholder="message" name="msg">
       <button>Share</button>
     </form>
-    <% } %>
+
     <ul class="stats">
-      <% for(var i=0; i< stats.length; i++) {%>
+      <% for(var i=0; i < stats.length; i++) {%>
       <li>
         <span style="display: none"><%= stats[i].name %></span>
         <span><%= stats[i].msg %></span>
