@@ -435,6 +435,7 @@ header{
   background-repeat: no-repeat;
   border-radius: 5px;
   margin-bottom: 4rem;
+  margin-right: 3rem;
 }
 
 .screenShots3{
@@ -498,7 +499,7 @@ header{
 }
 
 .contactForm textarea{
-  width: 80%;
+  width: 35rem;
   height: 25rem;
   margin-bottom: 2rem;
   margin-top: 2rem;
@@ -522,8 +523,12 @@ header{
 /* PROFILE.EJS */
 
 .section{
+  margin-bottom: 2rem;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 3rem;
 }
 
 .title{
@@ -532,44 +537,55 @@ header{
   font-size: 3rem;
   border-bottom: 3px solid black;
   padding-bottom: 1.8rem;
+  margin-bottom: 0px;
 }
 
-.bookOneTitle{
-  font-family: 'Fredoka One', cursive;
-  font-size: 2.5rem;
-  color: white;
-  background: orange;
-  margin: 0px;
-  padding-left: 1rem;
-  padding-bottom: .5rem;
-  text-align: center;
-  border-bottom: 3px solid black;
+.bookCover{
+  height: 38.7rem;
+  width: 45rem;
+  display: flex;
+  justify-content: center;
 }
 
-.gameImage{
-  border: 4px solid black;
-  width: 72rem;
-  height: 23rem;
-  background-image: url('episodeOne.png');
-  border-radius: 4px;
+.bookCover img{
+  width: 30rem;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
-.episodeLink{
-  text-decoration: none;
-  width: 72rem;
+.bookInfo{
+  width: 40rem;
 }
 
-.gameImage p{
-  border: 3px solid black;
+.bookInfo h2{
   font-size: 4rem;
-  padding: 2px;
   font-family: 'Fredoka One', cursive;
+}
+
+.bookInfo h3{
+  font-size: 2rem;
+  font-family: 'Fredoka One', cursive;
+}
+
+.bookInfo p{
+  font-size: 1.5rem;
+  font-family: 'arial';
+  margin-bottom: 4rem;
+}
+
+.bookInfo span{
+  font-weight: bold;
+}
+
+.bookInfo a{
+  text-decoration: none;
   color: black;
+  border: 2px solid black;
+  padding: 10px;
   border-radius: 4px;
-  background-color: rgb(255, 186, 36);
-  width: 11.2rem;
-  margin: 0px;
-  margin-top: 12rem;
+  font-family: 'Fredoka One', cursive;
+  background-color: rgb(26, 179, 255);
+  font-size: 2rem;
 }
 
 /* EPISODEONE.EJS */
@@ -674,7 +690,6 @@ header{
   align-items: center;
   flex-direction: column;
   margin-top: 2rem;
-  border-bottom: 2px solid black;
   padding-bottom: 5rem;
 }
 
@@ -707,7 +722,6 @@ header{
 }
 
 .deleteSection{
-  border-top: 2px solid black;
   margin-top: 3rem;
   height: 25rem;
 }
@@ -743,14 +757,74 @@ header{
   border-radius: 2px;
 }
 
-#star{
-  font-size: 1.5rem;
-  margin-right: 3rem;
-  color: yellow;
-}
-
 .gameSection{
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 40rem;
+}
+
+iframe{
+  border: none;
+  border-radius: 10px;
+}
+
+.tab {
+  float: left;
+  background-color: #f1f1f1;
+  width: 20%;
+  height: 47rem;
+}
+
+.tab button {
+  display: block;
+  background-color:rgb(26, 179, 255);
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1.3rem;
+  font-family: 'Fredoka One', cursive;
+}
+
+.tab button:hover {
+  background-color: rgb(255, 186, 36);
+}
+
+.tab button.active {
+  background-color: rgb(255, 186, 36);
+}
+
+.tabContent {
+  float: left;
+  padding: 0px 12px;
+  width: 70%;
+  border-left: none;
+  height: 300px;
+}
+
+.myTabs{
+  display: none;
+}
+
+#tabZero{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40rem;
+}
+
+#radTab{
+  background-image: url('radTab.png');
+  background-size: 30rem;
+  background-repeat: no-repeat;
+  width: 35rem;
+  height: 40rem;
+  margin-top: 10rem;
 }

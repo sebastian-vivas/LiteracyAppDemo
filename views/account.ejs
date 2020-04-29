@@ -3,7 +3,7 @@
   <head>
     <title>Rad Rocket!</title>
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/077191d827.js" crossorigin="anonymous"></script>
   </head>
   <body class="episodeBackground">
@@ -12,44 +12,64 @@
       <section class="headerLinks">
       </section>
       <section class="membership">
-        <a href="/profile">Story Menu</a>
+        <a href="/profile">Home <i class="fas fa-home"></i></a>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
       </section>
     </header>
-    <h2 class="contactUsTitle">Set Display Name</h2>
-    <section id="displayName" >
-      <% for(var i=0; i < names.length; i++) {%>
-        <span style="display: none"><%= names[i].displayName %></span>
-        <% if(user.local.email == names[i].name) { %>
-          <span><%= names[i].displayName %></span>
-          <button class="resetName">Reset</button>
+
+    <section class="tab">
+      <button class="tabLinks" onclick="switchTab(event, 'tabOne')">Set Display Name</button>
+      <button class="tabLinks" onclick="switchTab(event, 'tabTwo')">Contact</button>
+      <button class="tabLinks" onclick="switchTab(event, 'tabThree')">Delete Account</button>
+    </section>
+
+    <section id="tabZero" class="tabContent">
+      <section id="radTab"></section>
+    </section>
+
+    <section id="tabOne" class="tabContent myTabs">
+      <h2 class="contactUsTitle">Set Display Name</h2>
+      <section id="displayName" >
+        <% for(var i=0; i < names.length; i++) {%>
+          <span style="display: none"><%= names[i].displayName %></span>
+          <% if(user.local.email == names[i].name) { %>
+            <span><%= names[i].displayName %></span>
+            <button class="resetName">Reset</button>
+          <% } %>
         <% } %>
-      <% } %>
+      </section>
+      <section class="changeDisplayName">
+        <form action="/displayName" method="post">
+          <input style="display: none" type="text" value="<%= user.local.email%>" name="name">
+          <input type="text" name="displayName">
+          <button>Set Display Name</button>
+        </form>
+      </section>
     </section>
-    <section class="changeDisplayName">
-      <form action="/displayName" method="post">
-        <input style="display: none" type="text" value="<%= user.local.email%>" name="name">
-        <input type="text" name="displayName">
-        <button>Set Display Name</button>
-      </form>
+
+    <section id="tabTwo" class="tabContent myTabs">
+      <h2 class="contactUsTitle">Contact Us</h2>
+      <section class="contactFormPage">
+        <form  class="contactForm" action="https://formsubmit.co/seb.vivas.dev@gmail.com" method="POST" >
+            <input type="text" id="name" placeholder="Name">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <textarea id="message" placeholder="Message" rows="4"></textarea>
+            <input id="contactButton" type="submit" value="Send Message">
+        </form>
+      </section>
     </section>
-    <h2 class="contactUsTitle">Contact Us</h2>
-    <section class="contactFormPage">
-      <form  class="contactForm" action="https://formsubmit.co/seb.vivas.dev@gmail.com" method="POST" >
-          <input type="text" id="name" placeholder="Name">
-          <input type="email" name="email" id="email" placeholder="Email">
-          <textarea id="message" placeholder="Message" rows="4"></textarea>
-          <input id="contactButton" type="submit" value="Send Message">
-      </form>
+
+    <section id="tabThree" class="tabContent myTabs">
+      <section class="deleteSection">
+        <h2 class="contactUsTitle">Delete Account</h2>
+        <p>No worries, we understand things happen, but we're sad to see you go! Type out the email associated with your account and click delete. Thanks for using Rad Rocket! </p>
+        <form>
+          <input id="delete" type="text" name="email" placeholder="enter email address">
+          <button type="button" class="deleteAccount" name="button">delete</button>
+        </form>
+      </section>
     </section>
-    <section class="deleteSection">
-      <h2 class="contactUsTitle">Delete Account</h2>
-      <p>We understand things happen, but we're sad to see you go! If you decide to return to our service your star count will be saved! No worries. Type out the email associated with your account and click delete. Thanks for using Rad Rocket! </p>
-      <form>
-        <input id="delete" type="text" name="email" placeholder="enter email address">
-        <button type="button" class="deleteAccount" name="button">delete</button>
-      </form>
-    </section>
+
     <script src="main.js"></script>
   </body>
 </html>

@@ -13,9 +13,9 @@ export default class BootScene extends Phaser.Scene {
     this.load.image('portal', 'src/assets/images/rightArrow.png');
     this.load.image('returnPortal', 'src/assets/images/leftArrow.png');
     this.load.spritesheet('coin', 'src/assets/images/coin.png', {frameWidth: 14, frameHeight: 12});
-    this.load.audio('chimes', '../src/assets/audio/WindlessSlopes.mp3');
+    this.load.audio('chimes', 'audio/WindlessSlopes.mp3');
     this.load.spritesheet('fox', 'src/assets/images/foxRun.png', {frameWidth: 14, frameHeight: 12});
-    this.load.audio('getItemAudio', '../src/assets/audio/8.ogg');
+    this.load.audio('getItemAudio', 'audio/8.ogg');
     this.load.image('oldMan', 'src/assets/images/sensei.png');
     this.load.image('vendor', 'src/assets/images/vendor.png');
     this.load.image('bee', 'src/assets/images/bee.png');
@@ -30,7 +30,6 @@ export default class BootScene extends Phaser.Scene {
     this.load.image('pageFour', 'src/assets/images/pageFour.png');
     this.load.image('pageFive', 'src/assets/images/pageFive.png');
     this.load.image('pageSix', 'src/assets/images/pageSix.png');
-    // this.load.image('helloBubble', 'src/assets/images/hello.png');
 };
 
   create () {

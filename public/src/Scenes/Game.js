@@ -4,7 +4,6 @@ import Portal from '../Sprites/Portal';
 import ReturnPortal from '../Sprites/ReturnPortal';
 import Coins from '../Groups/Coins';
 import OldMan from '../Sprites/OldMan';
-// import Vendor from '../Sprites/Vendor';
 import FisherMan from '../Sprites/FisherMan';
 import Bee from '../Sprites/Bee';
 import FoodVendor from '../Sprites/FoodVendor';
@@ -26,7 +25,7 @@ export default class GameScene extends Phaser.Scene {
   };
 
   create () {
-    // const getItemAudio = this.sound.add('getItemAudio', {loop: false, volume: .5});
+    const getItemAudio = this.sound.add('getItemAudio', {loop: false, volume: .5});
 
     this.createMap();
     this.createPlayer();
@@ -37,7 +36,6 @@ export default class GameScene extends Phaser.Scene {
     this.createOldMan();
     this.createImages();
     this.createPages();
-    // this.createVendor();
     this.createFisherMan();
     this.createBee();
     this.createFoodVendor();
@@ -45,9 +43,8 @@ export default class GameScene extends Phaser.Scene {
     this.createStar();
     this.overlap();
     this.cursors = this.input.keyboard.createCursorKeys();
-    this.physics.add.overlap(this.coinsGroup, this.player, this.coinsGroup.collectCoin.bind(this.coinsGroup));
+    this.physics.add.overlap(this.coinsGroup, this.player, this.coinsGroup.collectCoin.bind(this.coinsGroup), function(player, coin) {getItemAudio.play()});
 };
-    // , function(player, coin) {getItemAudio.play()});
 
   createPlayer() {
     this.map.findObject('Player', (obj) => {
@@ -122,27 +119,23 @@ export default class GameScene extends Phaser.Scene {
       this.physics.add.overlap(this.player, this.pageOne, function(player, pageOne) { pageOne.destroy(); });
     });
 
-    // this.gameScene.events.on('vendorDialogue', () => {
-    // this.helloBubble = this.physics.add.image(480, 240, 'helloBubble').setScale(1);
-    // });
-
     this.gameScene.events.on('fisherManDialogue', () => {
-    this.pageTwo = this.physics.add.image(480, 240, 'pageTwo').setScale(1);
+    this.pageTwo = this.physics.add.image(480, 246, 'pageTwo').setScale(1);
     this.physics.add.overlap(this.player, this.pageTwo, function(player, pageTwo) { pageTwo.destroy(); });
     });
 
     this.gameScene.events.on('beeDialogue', () => {
-    this.pageThree = this.physics.add.image(480, 240, 'pageThree').setScale(1);
+    this.pageThree = this.physics.add.image(480, 246, 'pageThree').setScale(1);
     this.physics.add.overlap(this.player, this.pageThree, function(player, pageThree) { pageThree.destroy(); });
     });
 
     this.gameScene.events.on('foodVendorDialogue', () => {
-    this.pageFour = this.physics.add.image(480, 240, 'pageFour').setScale(1);
+    this.pageFour = this.physics.add.image(480, 246, 'pageFour').setScale(1);
     this.physics.add.overlap(this.player, this.pageFour, function(player, pageFour) { pageFour.destroy(); });
     });
 
     this.gameScene.events.on('friendDialogue', () => {
-    this.pageFive = this.physics.add.image(480, 240, 'pageFive').setScale(1);
+    this.pageFive = this.physics.add.image(480, 246, 'pageFive').setScale(1);
     this.physics.add.overlap(this.player, this.pageFive, function(player, pageFive) { pageFive.destroy(); });
     });
 

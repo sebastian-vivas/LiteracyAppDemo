@@ -3,7 +3,7 @@
   <head>
     <title>Rad Rocket!</title>
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/077191d827.js" crossorigin="anonymous"></script>
   </head>
   <body>
@@ -18,22 +18,22 @@
         <% } %>
       </section>
       <section class="membership">
-        <a href="/account" class="btn btn-default btn-sm">Account</a>
+        <a href="/account" class="btn btn-default btn-sm">Settings <i class="fas fa-cog"></i></a>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
       </section>
     </header>
     <h2 class="title">- STORY MENU -</h2>
     <section class="section">
-      <a class="episodeLink" href="/episodeOne">
-        <section class="gameImage">
-          <h3 class="bookOneTitle">1. Hello World!</h3>
-          <section class="section">
-            <p>PLAY!</p>
-          </section>
-        </section>
-      </a>
+      <section class="bookCover">
+        <img src="images/helloWorldCover.png" alt="helloWorldCover">
+      </section>
+      <section class="bookInfo">
+        <h2>Hello World!</h2>
+        <h3>by Sebastian Vivas</h3>
+        <p>In <span>Hello World!</span> Raddy is excited because he wants to say hello to all of his friends. They will be happy to get a kind greeting from a good friend. Help him find all of his friends in town!</p>
+        <a href="/episodeOne">Read Book</a>
+      </section>
     </section>
-
     <script src="main.js"></script>
   </body>
 </html>
