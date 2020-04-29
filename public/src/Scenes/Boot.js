@@ -13,9 +13,11 @@ export default class BootScene extends Phaser.Scene {
     this.load.image('portal', 'src/assets/images/rightArrow.png');
     this.load.image('returnPortal', 'src/assets/images/leftArrow.png');
     this.load.spritesheet('coin', 'src/assets/images/coin.png', {frameWidth: 14, frameHeight: 12});
-    this.load.audio('chimes', 'audio/WindlessSlopes.mp3');
+    this.load.audio('chimes', 'audio/chippytoon.wav');
     this.load.spritesheet('fox', 'src/assets/images/foxRun.png', {frameWidth: 14, frameHeight: 12});
-    this.load.audio('getItemAudio', 'audio/8.ogg');
+    this.load.audio('getItemAudio', 'audio/9.ogg');
+    this.load.audio('pageFlip', 'audio/smallPage.mp3')
+    this.load.audio('victory', 'audio/victory.wav')
     this.load.image('oldMan', 'src/assets/images/sensei.png');
     this.load.image('vendor', 'src/assets/images/vendor.png');
     this.load.image('bee', 'src/assets/images/bee.png');

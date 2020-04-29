@@ -10,7 +10,6 @@ import FoodVendor from '../Sprites/FoodVendor';
 import Friend from '../Sprites/Friend';
 import Star from '../Sprites/Star';
 
-
 export default class GameScene extends Phaser.Scene {
   constructor (key) {
     super(key);
@@ -43,7 +42,7 @@ export default class GameScene extends Phaser.Scene {
     this.createStar();
     this.overlap();
     this.cursors = this.input.keyboard.createCursorKeys();
-    this.physics.add.overlap(this.coinsGroup, this.player, this.coinsGroup.collectCoin.bind(this.coinsGroup), function(player, coin) {getItemAudio.play()});
+    this.physics.add.overlap(this.coinsGroup, this.player, this.coinsGroup.collectCoin.bind(this.coinsGroup), function(player, coin) {getItemAudio.play();});
 };
 
   createPlayer() {
@@ -114,6 +113,7 @@ export default class GameScene extends Phaser.Scene {
   createPages(){
     this.gameScene = this.scene.get('Game');
 
+
     this.gameScene.events.on('oldManDialogue', () => {
       this.pageOne = this.physics.add.image(480, 246, 'pageOne');
       this.physics.add.overlap(this.player, this.pageOne, function(player, pageOne) { pageOne.destroy(); });
@@ -182,14 +182,15 @@ export default class GameScene extends Phaser.Scene {
   };
 
   overlap(){
-    this.physics.add.overlap(this.player, this.portal, this.loadNextLevel.bind(this));
-    this.physics.add.overlap(this.player, this.returnPortal, this.returnToLevel.bind(this));
+    const pageFlip = this.sound.add('pageFlip', {rate: 1.2});
+    const victory = this.sound.add('victory', {rate: 2});
+    this.physics.add.overlap(this.player, this.portal, function(player, portal){ pageFlip.play(); }, this.loadNextLevel.bind(this));
+    this.physics.add.overlap(this.player, this.returnPortal, this.returnToLevel.bind(this), function(player, portal){ pageFlip.play(); });
     this.physics.add.overlap(this.player, this.oldMan, this.oldMan.talkToOldMan.bind(this.oldMan));
-    // this.physics.add.overlap(this.player, this.vendor, this.vendor.talkToVendor.bind(this.vendor));
     this.physics.add.overlap(this.player, this.fisherMan, this.fisherMan.talkToFisherMan.bind(this.fisherMan));
     this.physics.add.overlap(this.player, this.bee, this.bee.talkToBee.bind(this.bee));
     this.physics.add.overlap(this.player, this.foodVendor, this.foodVendor.talkToFoodVendor.bind(this.foodVendor));
     this.physics.add.overlap(this.player, this.friend, this.friend.talkToFriend.bind(this.friend));
-    this.physics.add.overlap(this.player, this.star, this.star.talkToStar.bind(this.star));
+    this.physics.add.overlap(this.player, this.star, this.star.talkToStar.bind(this.star), function(player, star){ victory.play();});
   }
 };

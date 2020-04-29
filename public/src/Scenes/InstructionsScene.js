@@ -20,7 +20,7 @@ export default class InstructionsScene extends Phaser.Scene{
 
     gameButton.on('pointerup', () => {
       this.scene.start('Game', {level: 1, newGame: true, levels: this.levels});
-      this.sound.add('chimes', {loop: true, volume: .5}).play();
+      this.sound.add('chimes', {loop: true, volume: .6}).play();
     });
   };
 };
