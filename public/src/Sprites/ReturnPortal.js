@@ -7,5 +7,5 @@ export default class ReturnPortal extends Phaser.Physics.Arcade.Sprite {
     this.setScale(.8);
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
-  }
-}
+  };
+};

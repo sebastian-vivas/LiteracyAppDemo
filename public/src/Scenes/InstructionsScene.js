@@ -10,12 +10,12 @@ export default class InstructionsScene extends Phaser.Scene{
       1: 'level1',
       2: 'level2'
     };
-    this.load.image('titleCover', 'src/assets/images/title.png');
+    this.load.image('instructions', 'src/assets/images/instructions.png');
   };
 
   create() {
-    this.add.image(480, 240, 'titleCover');
-    const gameButton = this.add.text(352, 290, 'Start', { fontSize: '32px', fill: '#fff', fontFamily: 'arial' });
+    this.add.image(480, 240, 'instructions');
+    const gameButton = this.add.text(847, 425, 'start', { fontSize: '54px', fill: 'black', fontFamily: 'arial', backgroundColor: 'rgb(247, 246, 246)'});
     gameButton.setInteractive();
 
     gameButton.on('pointerup', () => {

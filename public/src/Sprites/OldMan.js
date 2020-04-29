@@ -7,7 +7,7 @@ export default class OldMan extends Phaser.Physics.Arcade.Sprite {
     this.setScale(1.6);
     this.scene.physics.world.enable(this);
     this.scene.add.existing(this);
-  }
+  };
 
   talkToOldMan(){
     this.scene.events.emit('oldManDialogue');

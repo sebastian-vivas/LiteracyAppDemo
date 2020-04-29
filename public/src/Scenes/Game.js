@@ -25,7 +25,6 @@ export default class GameScene extends Phaser.Scene {
 
   create () {
     const getItemAudio = this.sound.add('getItemAudio', {loop: false, volume: .5});
-
     this.createMap();
     this.createPlayer();
     this.addCollisions();
@@ -43,7 +42,7 @@ export default class GameScene extends Phaser.Scene {
     this.overlap();
     this.cursors = this.input.keyboard.createCursorKeys();
     this.physics.add.overlap(this.coinsGroup, this.player, this.coinsGroup.collectCoin.bind(this.coinsGroup), function(player, coin) {getItemAudio.play();});
-};
+  };
 
   createPlayer() {
     this.map.findObject('Player', (obj) => {
@@ -113,7 +112,6 @@ export default class GameScene extends Phaser.Scene {
   createPages(){
     this.gameScene = this.scene.get('Game');
 
-
     this.gameScene.events.on('oldManDialogue', () => {
       this.pageOne = this.physics.add.image(480, 246, 'pageOne');
       this.physics.add.overlap(this.player, this.pageOne, function(player, pageOne) { pageOne.destroy(); });
@@ -142,7 +140,7 @@ export default class GameScene extends Phaser.Scene {
     this.gameScene.events.on('starDialogue', () => {
     this.pageSix = this.physics.add.image(480, 240, 'pageSix').setScale(1);
     this.scene.pause();
-    })
+  });
   };
 
   update () {
@@ -152,7 +150,7 @@ export default class GameScene extends Phaser.Scene {
   createImages (){
     this.add.image(80, 25, 'ui').setScale(1.3);
     this.add.image(28.35, 24, 'coin').setScale(1.6);
-  }
+  };
 
   addCollisions () {
     this.physics.add.collider(this.player, this.blockedLayer);
@@ -192,5 +190,5 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.foodVendor, this.foodVendor.talkToFoodVendor.bind(this.foodVendor));
     this.physics.add.overlap(this.player, this.friend, this.friend.talkToFriend.bind(this.friend));
     this.physics.add.overlap(this.player, this.star, this.star.talkToStar.bind(this.star), function(player, star){ victory.play();});
-  }
-};
+  };
+  };

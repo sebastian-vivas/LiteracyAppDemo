@@ -10,20 +10,15 @@ export default class BootScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('level2', 'src/assets/tilemaps/level2.json');
     this.load.spritesheet('atlas', 'src/assets/images/atlas.png', {frameWidth: 16, frameHeight: 16});
     this.load.spritesheet('characters', 'src/assets/images/avatar.png', {frameWidth: 24, frameHeight: 24});
-    this.load.image('portal', 'src/assets/images/rightArrow.png');
-    this.load.image('returnPortal', 'src/assets/images/leftArrow.png');
     this.load.spritesheet('coin', 'src/assets/images/coin.png', {frameWidth: 14, frameHeight: 12});
-    this.load.audio('chimes', 'audio/chippytoon.wav');
-    this.load.spritesheet('fox', 'src/assets/images/foxRun.png', {frameWidth: 14, frameHeight: 12});
-    this.load.audio('getItemAudio', 'audio/9.ogg');
-    this.load.audio('pageFlip', 'audio/smallPage.mp3')
-    this.load.audio('victory', 'audio/victory.wav')
+    this.load.spritesheet('friend', 'src/assets/images/friend.png', {frameWidth: 24, frameHeight: 24});
     this.load.image('oldMan', 'src/assets/images/sensei.png');
     this.load.image('vendor', 'src/assets/images/vendor.png');
     this.load.image('bee', 'src/assets/images/bee.png');
     this.load.image('fisherMan', 'src/assets/images/fisherMan.png');
     this.load.image('foodVendor', 'src/assets/images/vendor.png');
-    this.load.spritesheet('friend', 'src/assets/images/friend.png', {frameWidth: 24, frameHeight: 24});
+    this.load.image('portal', 'src/assets/images/rightArrow.png');
+    this.load.image('returnPortal', 'src/assets/images/leftArrow.png');
     this.load.image('star', 'src/assets/images/star.png');
     this.load.image('ui', 'src/assets/images/textBox.png');
     this.load.image('pageOne', 'src/assets/images/pageOne.png');
@@ -32,6 +27,10 @@ export default class BootScene extends Phaser.Scene {
     this.load.image('pageFour', 'src/assets/images/pageFour.png');
     this.load.image('pageFive', 'src/assets/images/pageFive.png');
     this.load.image('pageSix', 'src/assets/images/pageSix.png');
+    this.load.audio('getItemAudio', 'audio/9.ogg');
+    this.load.audio('pageFlip', 'audio/smallPage.mp3')
+    this.load.audio('victory', 'audio/victory.wav')
+    this.load.audio('chimes', 'audio/chippytoon.wav');
 };
 
   create () {
