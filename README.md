@@ -11,3 +11,11 @@
 ## Credit
 
 Modified from Scotch.io's auth tutorial
+
+## Game Attribution:
+
+#### PhotonStorm
+#### Artwork by Bakudas and Gabe Fern
+#### Sound effects by 'http://superpowers-html5.com/'
+#### Victory! theme composed by Jon K Fite
+#### RPG/Town Music composed by BBandRage
